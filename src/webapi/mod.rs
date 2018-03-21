@@ -34,3 +34,5 @@ pub mod events;
 pub mod parent_node;
 pub mod non_element_parent_node;
 pub mod console;
+pub mod media_devices;
+pub mod navigator;

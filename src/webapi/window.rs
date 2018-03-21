@@ -5,6 +5,7 @@ use webapi::window_or_worker::IWindowOrWorker;
 use webapi::storage::Storage;
 use webapi::location::Location;
 use webapi::history::History;
+use webapi::navigator::Navigator;
 use webcore::once::Once;
 use webcore::value::Value;
 
@@ -188,6 +189,13 @@ impl Window {
     pub fn outer_height(&self) -> i32 {
         js!(
             return @{self}.outerHeight;
+        ).try_into().unwrap()
+    }
+
+    //https://developer.mozilla.org/en-US/docs/Web/API/Window/navigator
+    pub fn navigator(&self) -> Navigator {
+        js!(
+            return @{self}.navigator;
         ).try_into().unwrap()
     }
 }
